@@ -1,0 +1,3 @@
+# Quest for the Crystal - Requirements
+# Tkinter comes built-in with Python
+# No external dependencies needed

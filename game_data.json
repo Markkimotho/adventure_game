@@ -1,0 +1,174 @@
+{
+  "game_metadata": {
+    "title": "Quest for the Crystal",
+    "description": "A simple adventure game",
+    "starting_location": "village"
+  },
+  "items": [
+    {
+      "id": "sword",
+      "name": "Iron Sword",
+      "description": "A sturdy blade"
+    },
+    {
+      "id": "bow",
+      "name": "Wooden Bow",
+      "description": "A simple ranged weapon"
+    },
+    {
+      "id": "shield",
+      "name": "Wooden Shield",
+      "description": "Protection from attacks"
+    },
+    {
+      "id": "potion",
+      "name": "Health Potion",
+      "description": "Restores vitality"
+    }
+  ],
+  "locations": {
+    "village": {
+      "name": "Village",
+      "description": "A peaceful village. You stand in the town square.",
+      "image_placeholder": "🏘️",
+      "exits": [
+        {"text": "Go to the Tavern", "destination": "tavern"},
+        {"text": "Go to the Forest", "destination": "forest"},
+        {"text": "Go to the Shop", "destination": "shop"}
+      ],
+      "loot": null
+    },
+    "tavern": {
+      "name": "Tavern",
+      "description": "A lively tavern filled with patrons. An old bartender nods at you.",
+      "image_placeholder": "🍺",
+      "exits": [
+        {"text": "Talk to the Bartender", "destination": "village"},
+        {"text": "Return to Town Square", "destination": "village"}
+      ],
+      "loot": {
+        "item_id": "potion",
+        "message": "The bartender hands you a health potion."
+      }
+    },
+    "forest": {
+      "name": "Dark Forest",
+      "description": "A dense forest. You notice something glinting in the undergrowth.",
+      "image_placeholder": "🌲",
+      "exits": [
+        {"text": "Search the undergrowth", "destination": "forest_search"},
+        {"text": "Return to Village", "destination": "village"}
+      ],
+      "loot": null
+    },
+    "forest_search": {
+      "name": "Deep Forest",
+      "description": "You find a clearing with ancient ruins.",
+      "image_placeholder": "⚔️",
+      "exits": [
+        {"text": "Take the Iron Sword", "destination": "forest"},
+        {"text": "Leave it here", "destination": "forest"}
+      ],
+      "loot": {
+        "item_id": "sword",
+        "message": "You picked up an Iron Sword!"
+      }
+    },
+    "shop": {
+      "name": "Weapon Shop",
+      "description": "A small shop with various weapons on display.",
+      "image_placeholder": "🏪",
+      "exits": [
+        {"text": "Browse weapons", "destination": "shop_browse"},
+        {"text": "Return to Village", "destination": "village"}
+      ],
+      "loot": null
+    },
+    "shop_browse": {
+      "name": "Shop Interior",
+      "description": "The shopkeeper smiles at you and offers a bow.",
+      "image_placeholder": "🏹",
+      "exits": [
+        {"text": "Take the Bow", "destination": "shop"},
+        {"text": "Thank him and leave", "destination": "shop"}
+      ],
+      "loot": {
+        "item_id": "bow",
+        "message": "You received a Wooden Bow!"
+      }
+    },
+    "castle": {
+      "name": "Dark Castle",
+      "description": "A massive dark castle looms before you. This is the lair of the Dragon.",
+      "image_placeholder": "🏰",
+      "exits": [
+        {"text": "Enter the Castle", "destination": "boss_arena"},
+        {"text": "You cannot leave now", "destination": "castle"}
+      ],
+      "loot": null
+    },
+    "boss_arena": {
+      "name": "Dragon's Lair",
+      "description": "You stand face to face with the mighty Dragon!",
+      "image_placeholder": "🐉",
+      "exits": [],
+      "loot": null
+    }
+  },
+  "boss_fight": {
+    "name": "The Dragon",
+    "description": "A fearsome dragon with scales of black stone.",
+    "stages": [
+      {
+        "stage": 1,
+        "message": "The dragon roars! Fire erupts from its mouth!",
+        "required_item": null
+      },
+      {
+        "stage": 2,
+        "message": "The dragon lunges forward with its claws!",
+        "required_item": null
+      },
+      {
+        "stage": 3,
+        "message": "The dragon beats its massive wings, creating a whirlwind!",
+        "required_item": null
+      },
+      {
+        "stage": 4,
+        "message": "You need to strike back! Use a weapon!",
+        "required_item": "sword"
+      },
+      {
+        "stage": 5,
+        "message": "The dragon circles overhead. You need range!",
+        "required_item": "bow"
+      },
+      {
+        "stage": 6,
+        "message": "The dragon's attacks are relentless!",
+        "required_item": null
+      },
+      {
+        "stage": 7,
+        "message": "You're wounded! Drink a potion!",
+        "required_item": "potion"
+      },
+      {
+        "stage": 8,
+        "message": "With a final strike, the dragon falls!",
+        "required_item": null
+      }
+    ]
+  },
+  "endings": {
+    "victory": {
+      "title": "VICTORY!",
+      "message": "You have defeated the Dragon and saved the realm!\nThe kingdom celebrates your heroic deeds!"
+    },
+    "defeat": {
+      "title": "DEFEAT",
+      "message": "You don't have the required item!\nThe dragon defeats you in combat.\n\nTry again!"
+    }
+  }
+}
